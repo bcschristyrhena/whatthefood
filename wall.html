@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Wall</title>
+  <link rel="stylesheet" type="text/css" href="style5.css">
+</head>
+<body>
+  <header>
+    <h1>Food Wall</h1>
+    <a href="homepage.html" class="logout-button">Logout</a>
+  </header>
+  <video autoplay muted loop id="video-background">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <div id="posts"></div>
+
+  <button id="addButton">+</button>
+
+  <div id="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Create Post</h2>
+      <input type="text" id="title" placeholder="Enter post title">
+      <textarea id="content" placeholder="Enter post content"></textarea>
+      <input type="file" id="image">
+      <button id="postButton">Post</button>
+    </div>
+  </div>
+
+  <script src="wall.js"></script>
+</body>
+</html>

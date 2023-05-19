@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="header">
+        <div class="top-nav">
+            <ul></ul>
+            <button>LOGIN</button>
+        </div>
+        <div class="side-nav">
+            <img src="logo.png" class="logo">
+            <a href="#">What the Food</a>
+        </div>
+        <div class="text-box">
+            <h1>FOOD FOR TODAY,</h1>
+            <h2>HOPE FOR TOMORROW</h2>
+            <p></p>
+            <a href="#">
+                <div class="icon">
+                    <img src="arrow.png">
+                </div>
+            </a>
+        </div>
+    </div>
+    <video autoplay muted loop>
+        <source src="background1.mp4">
+    </video>
+
+    <script>
+        class Element {
+            render() {
+                throw new Error("Render method must be implemented.");
+            }
+        }
+
+        class NavBar extends Element {
+            constructor() {
+                super();
+                this.items = [
+                    { label: 'HOME', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/homepage.html#' },
+                    { label: 'WHAT WE DO', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/whatwedo.html' },
+                    { label: 'CONTACT US', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/contactus.html' }
+                ];
+                this.loginButton = { label: 'LOGIN', onClick: () => { window.location.href = 'file:///C:/Users/nb%20msi/source/repos/Newnew/index.html'; } };
+            }
+
+            render() {
+                const ul = document.querySelector('.top-nav ul');
+                ul.innerHTML = '';
+
+                this.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.href;
+                    a.textContent = item.label;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+
+                const button = document.querySelector('.top-nav button');
+                button.textContent = this.loginButton.label;
+                button.onclick = this.loginButton.onClick;
+            }
+        }
+
+        class SideNav extends Element {
+            constructor() {
+                super();
+                this.logoSrc = 'logo.png';
+                this.title = 'What the Food';
+            }
+
+            render() {
+                const img = document.querySelector('.side-nav .logo');
+                img.src = this.logoSrc;
+
+                const a = document.querySelector('.side-nav a');
+                a.textContent = this.title;
+            }
+        }
+
+        class TextBox extends Element {
+            constructor() {
+                super();
+                this.heading1 = 'FOOD FOR TODAY,';
+                this.heading2 = 'HOPE FOR TOMORROW';
+                this.paragraph = 'Our team is made up of individuals who are dedicated to making a difference in the lives of those who are struggling with food insecurity, and we are committed to working together to create a positive change.';
+                this.arrowSrc = 'arrow.png';
+                this.linkHref = 'file:///C:/Users/nb%20msi/source/repos/Newnew/whatwedo.html';
+            }
+
+            render() {
+                const h1 = document.querySelector('.text-box h1');
+                h1.textContent = this.heading1;
+
+                const h2 = document.querySelector('.text-box h2');
+                h2.textContent = this.heading2;
+
+                const p = document.querySelector('.text-box p');
+                p.textContent = this.paragraph;
+
+                const img = document.querySelector('.text-box img');
+                img.src = this.arrowSrc;
+
+                const a = document.querySelector('.text-box a');
+                a.href = this.linkHref;
+            }
+        }
+
+        const navBar = new NavBar();
+        const sideNav = new SideNav();
+        const textBox = new TextBox();
+
+        navBar.render();
+        sideNav.render();
+        textBox.render();
+    </script>
+</body>
+</html>
