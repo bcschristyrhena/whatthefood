@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,29 +41,33 @@
             constructor() {
                 super();
                 this.items = [
-                    { label: 'HOME', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/homepage.html#' },
-                    { label: 'WHAT WE DO', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/whatwedo.html' },
-                    { label: 'CONTACT US', href: 'file:///C:/Users/nb%20msi/source/repos/Newnew/contactus.html' }
+                    { label: 'HOME', href: 'https://whatthefood1.z23.web.core.windows.net/#' },
+                    { label: 'WHAT WE DO', href: 'https://whatthefood4.z23.web.core.windows.net/' },
+                    { label: 'CONTACT US', href: 'https://whatthefood5.z23.web.core.windows.net/' }
                 ];
-                this.loginButton = { label: 'LOGIN', onClick: () => { window.location.href = 'file:///C:/Users/nb%20msi/source/repos/Newnew/index.html'; } };
+                this.loginButton = { label: 'LOGIN', onClick: () => { window.location.href = 'https://whatthefood2.z23.web.core.windows.net/'; } };
             }
 
             render() {
-                const ul = document.querySelector('.top-nav ul');
-                ul.innerHTML = '';
+                try {
+                    const ul = document.querySelector('.top-nav ul');
+                    ul.innerHTML = '';
 
-                this.items.forEach(item => {
-                    const li = document.createElement('li');
-                    const a = document.createElement('a');
-                    a.href = item.href;
-                    a.textContent = item.label;
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                });
+                    this.items.forEach(item => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = item.href;
+                        a.textContent = item.label;
+                        li.appendChild(a);
+                        ul.appendChild(li);
+                    });
 
-                const button = document.querySelector('.top-nav button');
-                button.textContent = this.loginButton.label;
-                button.onclick = this.loginButton.onClick;
+                    const button = document.querySelector('.top-nav button');
+                    button.textContent = this.loginButton.label;
+                    button.onclick = this.loginButton.onClick;
+                } catch (error) {
+                    console.error('An error occurred while rendering the NavBar:', error);
+                }
             }
         }
 
@@ -75,11 +79,15 @@
             }
 
             render() {
-                const img = document.querySelector('.side-nav .logo');
-                img.src = this.logoSrc;
+                try {
+                    const img = document.querySelector('.side-nav .logo');
+                    img.src = this.logoSrc;
 
-                const a = document.querySelector('.side-nav a');
-                a.textContent = this.title;
+                    const a = document.querySelector('.side-nav a');
+                    a.textContent = this.title;
+                } catch (error) {
+                    console.error('An error occurred while rendering the SideNav:', error);
+                }
             }
         }
 
@@ -90,24 +98,28 @@
                 this.heading2 = 'HOPE FOR TOMORROW';
                 this.paragraph = 'Our team is made up of individuals who are dedicated to making a difference in the lives of those who are struggling with food insecurity, and we are committed to working together to create a positive change.';
                 this.arrowSrc = 'arrow.png';
-                this.linkHref = 'file:///C:/Users/nb%20msi/source/repos/Newnew/whatwedo.html';
+                this.linkHref = 'https://whatthefood4.z23.web.core.windows.net/';
             }
 
             render() {
-                const h1 = document.querySelector('.text-box h1');
-                h1.textContent = this.heading1;
+                try {
+                    const h1 = document.querySelector('.text-box h1');
+                    h1.textContent = this.heading1;
 
-                const h2 = document.querySelector('.text-box h2');
-                h2.textContent = this.heading2;
+                    const h2 = document.querySelector('.text-box h2');
+                    h2.textContent = this.heading2;
 
-                const p = document.querySelector('.text-box p');
-                p.textContent = this.paragraph;
+                    const p = document.querySelector('.text-box p');
+                    p.textContent = this.paragraph;
 
-                const img = document.querySelector('.text-box img');
-                img.src = this.arrowSrc;
+                    const img = document.querySelector('.text-box img');
+                    img.src = this.arrowSrc;
 
-                const a = document.querySelector('.text-box a');
-                a.href = this.linkHref;
+                    const a = document.querySelector('.text-box a');
+                    a.href = this.linkHref;
+                } catch (error) {
+                    console.error('An error occurred while rendering the TextBox:', error);
+                }
             }
         }
 
